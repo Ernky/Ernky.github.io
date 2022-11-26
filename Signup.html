@@ -23,7 +23,7 @@
                             <p><label for="Email"><input type="email" placeholder="Email" required></label></p>
                         </div>
                         <div>
-                            <p><label for="Password"><input type="password" placeholder="Password" id="Password" required><span id="pass_error"></span></label>
+                            <p><label for="Password"><input type="password" onkeyup="check();" placeholder="Password" id="Password" required><span id="pass_error"></span></label>
                                 <span class="eye" onclick="show_pass()">
                                     <i><img id="show" src="Pictures/eye_open.png"></i>
                                     <i><img id="no_show" src="Pictures/eye_close.png"></i>
@@ -31,12 +31,13 @@
                             </p>
                         </div>
                         <div>
-                            <p><label for="Re-Password"><input type="password" placeholder="Re-enter password" id="Re-Password" required><span id="pass_error"></span></label>
+                            <p><label for="Re-Password"><input type="password" placeholder="Re-enter password" id="Re-Password" onkeyup="check();" required><span id="pass_error"></span></label>
                                 <span class="eye" onclick="Reshow_pass()">
                                     <i><img id="Re-show" src="Pictures/eye_open.png"></i>
                                     <i><img id="Re-no_show" src="Pictures/eye_close.png"></i>
                                 </span>
                             </p>
+                            <span id="message"></span>
                         </div>
                         <div>
                             <p><a class="loginbtr" href="Home.html" onclick="login_successful()">Sign Up</a></p>
@@ -84,6 +85,17 @@
                     x.type = "password";
                     y.style.display = "none";
                     z.style.display = "block";
+                }
+            }
+
+            var check = function () {
+                if (document.getElementById('Password').value ==
+                document.getElementById('Re-Password').value){
+                    document.getElementById('message').style.color = 'green';
+                    document.getElementById('message').innerHTML = 'matching';
+                } else{
+                    document.getElementById('message').style.color = 'red';
+                    document.getElementById('message').innerHTML = 'not matching';
                 }
             }
         </script>
