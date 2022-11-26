@@ -58,7 +58,7 @@
                     <div class="input"><input type="email" id="email" placeholder="EMAIL" required></div>
                     <div class="input"><input type="text" id="phone" placeholder="CONTACT NO." required></div>
                     <div class="input"><textarea id="message" rows="8" placeholder="MESSAGE" required></textarea></div>
-                    <button>SUBMIT</button>
+                    <button id="submit">SUBMIT</button>
                 </form>
             </div>
         </section>
@@ -93,5 +93,15 @@
                 </div>
             </section>
         </footer>
+        <script>
+            function editmessage() {
+                const textarea = document.getElementById('message');
+                let censor = /sexy|stupid/gi;
+                let message1 = textarea.value;
+                let message2 = message1.replace(censor, '####');
+                document.getElementById('message').value = message2;
+            }
+            document.getElementById('submit').addEventListener('click',editmessage);
+        </script>
     </body>
 </html>
